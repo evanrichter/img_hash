@@ -1,0 +1,33 @@
+[package]
+name = "img_hash-fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+image = { version = ">=0.21,<0.24", default-features = false }
+
+[dependencies.img_hash]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = true
+
+[features]
+default = []
+debug = []
+
+[[bin]]
+name = "image_hashing"
+path = "fuzz_targets/image_hashing.rs"
+test = false
+doc = false
