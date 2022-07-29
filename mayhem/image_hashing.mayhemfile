@@ -1,0 +1,7 @@
+project: img-hash
+target: image-hashing
+
+cmds:
+  - cmd: /image_hashing
+  - cmd: /image_hashing_no_inst @@
+    libfuzzer: false
